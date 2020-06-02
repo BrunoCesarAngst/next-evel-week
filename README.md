@@ -1,4 +1,4 @@
-# next-evel-week
+# next-level-week
 
 <p align="center">
   <a href="https://example.com/">
