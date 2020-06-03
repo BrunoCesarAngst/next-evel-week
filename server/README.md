@@ -50,16 +50,44 @@ TypeScript
 - ts-node
 - ts-node-dev
 
+Knex
+- migrations
+- seeds
+- transactions
+
 ```text
   server .
          ├── CONTRIBUTING.md
          ├── .editorconfig
          ├── .gitignore
+         ├── knexfile.ts
+         ├── overcome
+         │   └── server.ts
          ├── package.json
          ├── README.md
          ├── src
+         │   ├── controllers
+         │   │   ├── ItemsController.ts
+         │   │   └── PointsController.ts
+         │   ├── database
+         │   │   ├── connection.ts
+         │   │   ├── database.sqlite
+         │   │   ├── migrations
+         │   │   │   ├── 00_create_points.ts
+         │   │   │   ├── 01_create_items.ts
+         │   │   │   └── 02_create_points_items.ts
+         │   │   └── seeds
+         │   │       └── default_items.ts
+         │   ├── routes.ts
          │   └── server.ts
          ├── tsconfig.json
+         ├── uploads
+         │   ├── baterias.svg
+         │   ├── eletronicos.svg
+         │   ├── lampadas.svg
+         │   ├── oleo.svg
+         │   ├── organicos.svg
+         │   └── papeis-papelao.svg
          └── yarn.lock
 ```
 

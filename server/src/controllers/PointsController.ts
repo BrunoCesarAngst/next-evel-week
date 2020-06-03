@@ -2,8 +2,9 @@ import { Request, Response } from 'express'
 import knex from '../database/connection';
 
 class PointsController {
+
+  // filter city, uf, items (query params)
   async index(request: Request, response: Response) {
-    // filter city, uf, items (query params)
     const { city, uf, items } = request.query;
 
     const parsedItems = String(items)
@@ -11,7 +12,7 @@ class PointsController {
       .map(item => Number(item.trim()));
 
       const points = await knex('points')
-        .join('points_items', 'point_id', '=', 'points_items.point_id')
+        .join('points_items', 'points.id', '=', 'points_items.point_id')
         .whereIn('points_items.item_id', parsedItems)
         .where('city', String(city))
         .where('uf', String(uf))
@@ -32,7 +33,7 @@ class PointsController {
     }
 
     const items = await knex('items')
-      .join('points_items', 'item_id', '=', 'points_items.item_id')
+      .join('points_items', 'items.id', '=', 'points_items.item_id')
       .where('points_items.point_id', id)
       .select('items.title');
 
@@ -57,7 +58,7 @@ class PointsController {
 
     const point = {
       name,
-      image: 'image_fake',
+      image: 'https://images.unsplash.com/photo-1556767576-5ec41e3239ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
       email,
       whatsapp,
       latitude,
@@ -89,3 +90,5 @@ class PointsController {
 }
 
 export default PointsController;
+
+// sql migrations seeds transactions TS
