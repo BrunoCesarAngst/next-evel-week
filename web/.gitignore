@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/files
+/overcome
 /.pnp
 .pnp.js
 

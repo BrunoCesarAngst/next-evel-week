@@ -7,6 +7,8 @@ class PointsController {
   async index(request: Request, response: Response) {
     const { city, uf, items } = request.query;
 
+    console.log(city, uf, items);
+
     const parsedItems = String(items)
       .split(',')
       .map(item => Number(item.trim()));
